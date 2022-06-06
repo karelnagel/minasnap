@@ -5,7 +5,8 @@
   "description": "MinaSnap",
   "main": "build/index.js",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "snap": "mm-snap",
@@ -78,10 +79,12 @@
     "@filecoin-shipyard/lotus-client-rpc": "^0.2.0",
     "@filecoin-shipyard/lotus-client-schema": "^0.0.14",
     "@glif/filecoin-number": "^2.0.0-beta.0",
-    "@metamask/key-tree": "^4.0.0",
-    "@metamask/key-tree-old": "npm:@metamask/key-tree@^3.0.1",
+    "@metamask/key-tree": "3.0.1",
+    "@types/bs58check": "^2.1.0",
     "@zondax/filecoin-signing-tools": "^0.20.0",
     "bn.js": "^5.1.2",
-    "deepmerge": "^4.2.2"
+    "bs58check": "^2.1.2",
+    "deepmerge": "^4.2.2",
+    "mina-signer": "1.1.0"
   }
 }

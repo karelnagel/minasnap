@@ -10,7 +10,7 @@ export async function estimateMessageGas(
   const keypair = await getKeyPair(wallet);
   const message: Message = {
     ...messageRequest,
-    from: keypair.address,
+    from: keypair.publicKey,
     gasfeecap: "0",
     gaslimit: 0,
     gaspremium: "0",

@@ -3,7 +3,6 @@ import {Box, Button, Card, CardContent, CardHeader, Divider, Grid, Typography} f
 import {FilecoinSnapApi} from "@karelnagel/minasnap-types";
 
 export interface AccountProps {
-    address: string,
     publicKey: string,
     balance: string,
     balanceChange: boolean,
@@ -25,10 +24,6 @@ export const Account = (props: AccountProps) => {
             <CardContent>
                 <Grid container alignItems="center">
                     <Grid item md={6} xs={12}>
-                        <Typography variant="h6">ADDRESS:</Typography>
-                        <Typography variant="subtitle2">{props.address}</Typography>
-                        <Divider light/>
-                        <Box m={"0.5rem"}/>
                         <Typography variant="h6">PUBLIC KEY:</Typography>
                         <Typography variant="subtitle2">{props.publicKey}</Typography>
                         <Divider light/>

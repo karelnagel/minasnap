@@ -7,7 +7,7 @@
     "url": "https://github.com/karelnagel/minasnap.git"
   },
   "source": {
-    "shasum": "HPfrpT3USxqWMAGpBBISGvx+Ieq7DZmPFISV1WPEc1g=",
+    "shasum": "YrMYJnSUzvQlCwZVyOA6ud8DYFTP2yGSdUqQW3CYgS0=",
     "location": {
       "npm": {
         "filePath": "./dist/bundle.js",
@@ -20,7 +20,7 @@
     "endowment:network-access": {},
     "snap_confirm": {},
     "snap_getBip44Entropy_1": {},
-    "snap_getBip44Entropy_461": {},
+    "snap_getBip44Entropy_12586": {},
     "snap_manageState": {}
   },
   "manifestVersion": "0.1"

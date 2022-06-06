@@ -1,54 +1,39 @@
-import {MetamaskState, Wallet} from "../interfaces";
-import {keyRecover} from "@zondax/filecoin-signing-tools/js";
-import {KeyPair} from "@karelnagel/minasnap-types";
-import {
-  deriveBIP44AddressKey as deprecated_deriveBIP44AddressKey,
-  JsonBIP44CoinTypeNode as Deprecated_JsonBIP44CoinTypeNode
-} from '@metamask/key-tree-old';
-import {getMetamaskVersion, isNewerVersion} from "../util/version";
-import {getBIP44AddressKeyDeriver, JsonBIP44CoinTypeNode } from "@metamask/key-tree";
-
+import { Wallet } from "../interfaces";
+import { KeyPair } from "@karelnagel/minasnap-types";
+import { getBIP44AddressKeyDeriver, JsonBIP44CoinTypeNode } from "@metamask/key-tree";
+import bs58check from "bs58check";
+// import Client from "mina-signer";
+// const client = new Client({ network: "mainnet" });
 /**
  * Return derived KeyPair from seed.
  * @param wallet
  */
 export async function getKeyPair(wallet: Wallet): Promise<KeyPair> {
-  const snapState = await wallet.request({ method: 'snap_manageState', params: ['get'] }) as MetamaskState;
-  const { derivationPath } = snapState.filecoin.config;
-  const [, , coinType, account, change, addressIndex] = derivationPath.split('/');
-  const bip44Code = coinType.replace("\'", "");
-  const isFilecoinMainnet = bip44Code === '461';
+  // const snapState = await wallet.request({ method: 'snap_manageState', params: ['get'] }) as MetamaskState;
+  // const { derivationPath } = snapState.filecoin.config;
+  // const [, , , , , addressIndex] = derivationPath.split('/'); // Todo think through
+
+  const bip44Code = 12586;
+
   const bip44Node = await wallet.request({
     method: `snap_getBip44Entropy_${bip44Code}`,
     params: []
-  }) as Deprecated_JsonBIP44CoinTypeNode | JsonBIP44CoinTypeNode;
+  }) as JsonBIP44CoinTypeNode;
 
-  let privateKey: Buffer;
 
-  const currentVersion = await getMetamaskVersion(wallet);
-  if(isNewerVersion('MetaMask/v10.14.99-flask.0', currentVersion)) {
-    const addressKeyDeriver = await getBIP44AddressKeyDeriver(bip44Node as JsonBIP44CoinTypeNode, {
-      account: parseInt(account),
-      change: parseInt(change),
-    });
-    const extendedPrivateKey = await addressKeyDeriver(Number(addressIndex));
-    privateKey = extendedPrivateKey.privateKeyBuffer.slice(0, 32);
-  } else {
-    // metamask has supplied us with entropy for "m/purpose'/bip44Code'/"
-    // we need to derive the final "accountIndex'/change/addressIndex"
-    const extendedPrivateKey = await deprecated_deriveBIP44AddressKey(bip44Node as Deprecated_JsonBIP44CoinTypeNode, {
-      account: parseInt(account),
-      address_index: parseInt(addressIndex),
-      change: parseInt(change),
-    });
-    privateKey = extendedPrivateKey.slice(0, 32);
-  }
+  const keyDeriver = await getBIP44AddressKeyDeriver(bip44Node);
+  const extendedPrivateKey = await keyDeriver(0);// Todo add addressIndex
+  const almostPrivateKey = extendedPrivateKey.slice(0, 32);
+  almostPrivateKey[0] &= 0x3f;
 
-  const extendedKey = keyRecover(privateKey, !isFilecoinMainnet);
+  const childPrivateKey = almostPrivateKey.reverse();
+  const privateKeyHex = `5a01${childPrivateKey.toString('hex')}`;
+  const privateKey = bs58check.encode(Buffer.from(privateKeyHex, 'hex'));
 
+  // const publicKey = client.derivePublicKey(privateKey);
+  const publicKey ="Publickey coming soon";
   return {
-    address: extendedKey.address,
-    privateKey: extendedKey.private_base64,
-    publicKey: extendedKey.public_hexstring
+    privateKey,
+    publicKey
   };
 }

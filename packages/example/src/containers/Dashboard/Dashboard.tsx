@@ -16,7 +16,6 @@ export const Dashboard = () => {
 
     const [state] = useContext(MetaMaskContext);
     const [balance, setBalance] = useState("");
-    const [address, setAddress] = useState("");
     const [publicKey, setPublicKey] = useState("");
     const [messages, setMessages] = useState<MessageStatus[]>([]);
     const [networks, setNetworks] =  useState<"t"|"f">("f")
@@ -60,7 +59,6 @@ export const Dashboard = () => {
     useEffect(() => {
         (async () => {
             if (api) {
-                setAddress(await api.getAddress());
                 setPublicKey(await api.getPublicKey());
                 setBalance(await api.getBalance());
                 setMessages(await api.getMessages());
@@ -113,7 +111,6 @@ export const Dashboard = () => {
                     <Grid container spacing={3} alignItems="stretch">
                         <Grid item xs={12}>
                             <Account
-                                address={address}
                                 balance={balance + " FIL"}
                                 publicKey={publicKey}
                                 api={api}

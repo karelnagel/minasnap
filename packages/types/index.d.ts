@@ -1,53 +1,53 @@
 export interface GetPublicKeyRequest{
-  method: "fil_getPublicKey";
+  method: "mina_getPublicKey";
 }
 
 export interface GetAddressRequest {
-  method: "fil_getAddress";
+  method: "mina_getAddress";
 }
 
 export interface ExportSeedRequest {
-  method: "fil_exportPrivateKey";
+  method: "mina_exportPrivateKey";
 }
 
 export interface ConfigureRequest {
-  method: "fil_configure";
+  method: "mina_configure";
   params: {
     configuration: SnapConfig;
   };
 }
 
 export interface SignMessageRequest {
-  method: "fil_signMessage";
+  method: "mina_signMessage";
   params: {
     message: MessageRequest;
   };
 }
 
 export interface SignMessageRawRequest {
-  method: "fil_signMessageRaw";
+  method: "mina_signMessageRaw";
   params: {
     message: string;
   };
 }
 
 export interface SendMessageRequest {
-  method: "fil_sendMessage";
+  method: "mina_sendMessage";
   params: {
     signedMessage: SignedMessage;
   };
 }
 
 export interface GetBalanceRequest {
-  method: "fil_getBalance";
+  method: "mina_getBalance";
 }
 
 export interface GetMessagesRequest {
-  method: "fil_getMessages";
+  method: "mina_getMessages";
 }
 
 export interface GetGasForMessageRequest {
-  method: "fil_getGasForMessage";
+  method: "mina_getGasForMessage";
   params: {
     message: MessageRequest;
     maxFee?: string;
@@ -70,7 +70,7 @@ type Method = MetamaskFilecoinRpcRequest["method"];
 
 export interface WalletEnableRequest {
   method: "wallet_enable";
-  params: object[];
+  params: [];
 }
 
 export interface GetSnapsRequest {
@@ -169,7 +169,6 @@ export interface FilecoinEventApi {}
 
 export interface FilecoinSnapApi {
   getPublicKey(): Promise<string>;
-  getAddress(): Promise<string>;
   getBalance(): Promise<string>;
   exportPrivateKey(): Promise<string>;
   configure(configuration: Partial<SnapConfig>): Promise<void>;
@@ -181,7 +180,6 @@ export interface FilecoinSnapApi {
 }
 
 export interface KeyPair {
-  address: string;
   privateKey: string;
   publicKey: string;
 }

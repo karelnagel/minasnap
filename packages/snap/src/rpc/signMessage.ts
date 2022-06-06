@@ -16,13 +16,13 @@ export async function signMessage(
     const gl = messageRequest.gaslimit && messageRequest.gaslimit !== 0 ? messageRequest.gaslimit : 0;
     const gp = messageRequest.gaspremium && messageRequest.gaspremium !== "0" ? messageRequest.gaspremium : "0";
     const gfc = messageRequest.gasfeecap && messageRequest.gasfeecap !== "0" ? messageRequest.gasfeecap : "0";
-    const nonce = messageRequest.nonce ?? Number(await api.mpoolGetNonce(keypair.address));
+    const nonce = messageRequest.nonce ?? Number(await api.mpoolGetNonce(keypair.publicKey));
     const params = messageRequest.params || "";
     const method = messageRequest.method || 0;
 
     // create message object
     const message: Message = {
-      from: keypair.address,
+      from: keypair.publicKey,
       gasfeecap: gfc,
       gaslimit: gl,
       gaspremium: gp,
@@ -78,7 +78,7 @@ export async function signMessageRaw(wallet: Wallet, rawMessage: string): Promis
     const confirmation = await showConfirmationDialog(
       wallet,
       {
-        description: `It will be signed with address: ${keypair.address}`,
+        description: `It will be signed with address: ${keypair.publicKey}`,
         prompt: `Do you want to sign this message?`,
         textAreaContent: rawMessage,
       }

@@ -1,5 +1,4 @@
 import {EmptyMetamaskState, Wallet} from "./interfaces";
-import {getAddress} from "./rpc/getAddress";
 import {exportPrivateKey} from "./rpc/exportPrivateKey";
 import {getPublicKey} from "./rpc/getPublicKey";
 import {getApi} from "./filecoin/api";
@@ -14,7 +13,7 @@ import {estimateMessageGas} from "./rpc/estimateMessageGas";
 declare let wallet: Wallet;
 
 const apiDependentMethods = [
-  "fil_getBalance", "fil_signMessage", "fil_sendMessage", "fil_getGasForMessage", "fil_configure"
+  "mina_getBalance", "mina_signMessage", "mina_sendMessage", "mina_getGasForMessage", "mina_configure"
 ];
 
 wallet.registerRpcMessageHandler(async (originString, requestObject) => {
@@ -38,30 +37,28 @@ wallet.registerRpcMessageHandler(async (originString, requestObject) => {
   }
 
   switch (requestObject.method) {
-    case "fil_configure":
+    case "mina_configure":
       const resp = await configure(
         wallet, requestObject.params.configuration.network, requestObject.params.configuration
       );
       api = resp.api;
       return resp.snapConfig;
-    case "fil_getAddress":
-      return await getAddress(wallet);
-    case "fil_getPublicKey":
+    case "mina_getPublicKey":
       return await getPublicKey(wallet);
-    case "fil_exportPrivateKey":
+    case "mina_exportPrivateKey":
       return exportPrivateKey(wallet);
-    case "fil_getBalance":
+    case "mina_getBalance":
       const balance = await getBalance(wallet, api);
       return balance;
-    case "fil_getMessages":
+    case "mina_getMessages":
       return getMessages(wallet);
-    case "fil_signMessage":
+    case "mina_signMessage":
       return await signMessage(wallet, api, requestObject.params.message);
-    case "fil_signMessageRaw":
+    case "mina_signMessageRaw":
       return await signMessageRaw(wallet, requestObject.params.message);
-    case "fil_sendMessage":
+    case "mina_sendMessage":
       return await sendMessage(wallet, api, requestObject.params.signedMessage);
-    case "fil_getGasForMessage":
+    case "mina_getGasForMessage":
       return await estimateMessageGas(wallet, api, requestObject.params.message, requestObject.params.maxFee);
     default:
       throw new Error("Unsupported RPC method");

@@ -33,7 +33,6 @@ describe('Test account function: getKeyPair', function() {
     const result = await getKeyPair(walletStub);
 
     expect(result.publicKey).to.be.eq(testPublicKey);
-    expect(result.address).to.be.eq(testAddress);
     expect(result.privateKey).to.be.eq(testPrivateKeyBase64);
     expect(walletStub.rpcStubs.snap_getBip44Entropy_461).to.have.been.calledOnce;
     expect(walletStub.rpcStubs.snap_manageState).to.have.been.calledOnce;
@@ -52,7 +51,6 @@ describe('Test account function: getKeyPair', function() {
 
     const result = await getKeyPair(walletStub);
     expect(result.publicKey).to.be.eq(testPublicKey);
-    expect(result.address).to.be.eq(testAddress);
     expect(result.privateKey).to.be.eq(testPrivateKeyBase64);
     expect(walletStub.rpcStubs.snap_getBip44Entropy_461).to.have.been.calledOnce;
     expect(walletStub.rpcStubs.snap_manageState).to.have.been.calledOnce;
