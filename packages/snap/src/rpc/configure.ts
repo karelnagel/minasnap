@@ -1,7 +1,7 @@
 import {MetamaskState, Wallet} from "../interfaces";
 import deepmerge from "deepmerge";
 import {getDefaultConfiguration} from "../configuration";
-import {SnapConfig} from "@chainsafe/filsnap-types";
+import {SnapConfig} from "@karelnagel/minasnap-types";
 import {LotusRpcApi} from "../filecoin/types";
 import {getApiFromConfig} from "../filecoin/api";
 

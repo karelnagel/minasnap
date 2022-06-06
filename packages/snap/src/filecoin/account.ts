@@ -1,6 +1,6 @@
 import {MetamaskState, Wallet} from "../interfaces";
 import {keyRecover} from "@zondax/filecoin-signing-tools/js";
-import {KeyPair} from "@chainsafe/filsnap-types";
+import {KeyPair} from "@karelnagel/minasnap-types";
 import {
   deriveBIP44AddressKey as deprecated_deriveBIP44AddressKey,
   JsonBIP44CoinTypeNode as Deprecated_JsonBIP44CoinTypeNode

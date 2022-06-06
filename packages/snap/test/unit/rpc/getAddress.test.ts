@@ -3,7 +3,7 @@ import sinonChai from "sinon-chai";
 import {WalletMock} from "../wallet.mock.test";
 import {getAddress} from "../../../src/rpc/getAddress";
 import {testNewBip44Entropy, testAddress, testNewMetamaskVersion} from "./keyPairTestConstants";
-import {SnapConfig} from "@chainsafe/filsnap-types";
+import {SnapConfig} from "@karelnagel/minasnap-types";
 
 chai.use(sinonChai);
 

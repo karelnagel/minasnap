@@ -3,7 +3,7 @@ import {
   isMetamaskSnapsSupported,
   isSnapInstalled,
 } from "./utils";
-import { SnapConfig } from "@chainsafe/filsnap-types";
+import { SnapConfig } from "@karelnagel/minasnap-types";
 import { MetamaskFilecoinSnap } from "./snap";
 
 const defaultSnapOrigin =

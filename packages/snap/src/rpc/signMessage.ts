@@ -4,7 +4,7 @@ import {Wallet} from "../interfaces";
 import {getKeyPair} from "../filecoin/account";
 import {showConfirmationDialog} from "../util/confirmation";
 import {LotusRpcApi} from "../filecoin/types";
-import {MessageRequest, SignMessageResponse, SignRawMessageResponse} from "@chainsafe/filsnap-types";
+import {MessageRequest, SignMessageResponse, SignRawMessageResponse} from "@karelnagel/minasnap-types";
 import {messageCreator} from "../util/messageCreator";
 
 export async function signMessage(

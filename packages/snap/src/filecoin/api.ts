@@ -4,7 +4,7 @@ import {LotusRPC} from "@filecoin-shipyard/lotus-client-rpc";
 import {NodejsProvider, ProviderOptions} from "@filecoin-shipyard/lotus-client-provider-nodejs";
 import {testnet} from "@filecoin-shipyard/lotus-client-schema";
 import {LotusRpcApi} from "./types";
-import {SnapConfig} from "@chainsafe/filsnap-types";
+import {SnapConfig} from "@karelnagel/minasnap-types";
 
 export async function getApi(wallet: Wallet): Promise<LotusRpcApi> {
   const configuration = await getConfiguration(wallet);

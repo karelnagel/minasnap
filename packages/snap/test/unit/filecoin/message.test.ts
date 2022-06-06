@@ -3,7 +3,7 @@ import sinonChai from "sinon-chai";
 import {WalletMock} from "../wallet.mock.test";
 import {testAddress} from "../rpc/keyPairTestConstants";
 import {updateMessageInState} from "../../../src/filecoin/message";
-import { Message, MessageStatus } from "@chainsafe/filsnap-types";
+import { Message, MessageStatus } from "@karelnagel/minasnap-types";
 
 chai.use(sinonChai);
 

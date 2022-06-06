@@ -1,14 +1,14 @@
 {
-  "name": "@chainsafe/filsnap-adapter",
-  "version": "2.1.1",
+  "name": "@karelnagel/minasnap-adapter",
+  "version": "1.0.0",
   "main": "./build/index.js",
   "module": "./build/index.js",
   "types": "./build/index.d.ts",
-  "author": "chainsafe <info@chainsafe.io>",
+  "author": "karelnagel <karel@karel.wtf> (https://karel.wtf)",
   "license": "(Apache-2.0 AND MIT)",
-  "homepage": "https://github.com/chainsafe/filecoin-metamask-snap/tree/master/packages/adapter",
+  "homepage": "https://github.com/karelnagel/minasnap/tree/main/packages/adapter",
   "keywords": [
-    "filecoin",
+    "mina",
     "metamask",
     "snap",
     "dapp"
@@ -16,7 +16,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "description": "Adapter for installing Filsnap",
+  "description": "Adapter for installing MinaSnap",
   "scripts": {
     "prebuild": "rm -rf build",
     "build": "yarn run build:lib && yarn run build:types",
@@ -29,7 +29,7 @@
     "test": "exit 0"
   },
   "dependencies": {
-    "@chainsafe/filsnap-types": "workspace:^"
+    "@karelnagel/minasnap-types": "workspace:^"
   },
   "devDependencies": {
     "@types/node": "^12.12.35",

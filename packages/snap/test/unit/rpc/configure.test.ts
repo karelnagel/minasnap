@@ -4,7 +4,7 @@ import {WalletMock} from "../wallet.mock.test";
 import {filecoinTestnetConfiguration} from "../../../src/configuration/predefined";
 import {configure} from "../../../src/rpc/configure";
 import {EmptyMetamaskState} from "../../../src/interfaces";
-import {SnapConfig} from "@chainsafe/filsnap-types";
+import {SnapConfig} from "@karelnagel/minasnap-types";
 
 chai.use(sinonChai);
 

@@ -9,7 +9,7 @@ import {
   testPrivateKeyBase64,
   testPublicKey
 } from "../rpc/keyPairTestConstants";
-import {SnapConfig} from "@chainsafe/filsnap-types";
+import {SnapConfig} from "@karelnagel/minasnap-types";
 
 chai.use(sinonChai);
 

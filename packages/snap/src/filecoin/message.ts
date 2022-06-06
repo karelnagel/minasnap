@@ -1,5 +1,5 @@
 import {MetamaskState, Wallet} from "../interfaces";
-import {MessageStatus} from "@chainsafe/filsnap-types";
+import {MessageStatus} from "@karelnagel/minasnap-types";
 
 export async function updateMessageInState(wallet: Wallet, message: MessageStatus): Promise<void> {
   const state = await wallet.request({ method: 'snap_manageState', params: ['get'] }) as MetamaskState;

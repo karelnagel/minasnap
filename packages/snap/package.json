@@ -1,9 +1,12 @@
 {
-  "name": "@chainsafe/filsnap",
-  "version": "2.3.5",
+  "name": "@karelnagel/minasnap",
+  "version": "1.0.0",
   "license": "(Apache-2.0 AND MIT)",
-  "description": "Filsnap - Metamask snap to interact with Filecoin dapps.",
+  "description": "MinaSnap",
   "main": "build/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "snap": "mm-snap",
     "manifest": "mm-snap manifest",
@@ -33,24 +36,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Chainsafe/filsnap.git"
+    "url": "https://github.com/karelnagel/minasnap.git"
   },
   "keywords": [
-    "filecoin",
+    "mina",
     "metamask",
     "snap",
     "dapp",
     "wallet",
     "plugin"
   ],
-  "author": "chainsafe <info@chainsafe.io>",
+  "author": "karelnagel <karel@karel.wtf> (https://karel.wtf)",
   "bugs": {
-    "url": "https://github.com/chainsafe/filecoin-metamask-snap/issues"
+    "url": "https://github.com/karelnagel/minasnap/issues"
   },
-  "homepage": "https://github.com/chainsafe/filecoin-metamask-snap#readme",
+  "homepage": "https://github.com/karelnagel/minasnap#readme",
   "devDependencies": {
-    "@chainsafe/filsnap-types": "workspace:^",
+    "@karelnagel/minasnap-types": "workspace:^",
     "@metamask/snaps-cli": "^0.11.1",
+    "@types/babel__core": "^7",
     "@types/bn.js": "^4.11.6",
     "@types/chai": "^4.2.10",
     "@types/mocha": "^9.1.1",
@@ -69,6 +73,7 @@
     "typescript": "4.3.5"
   },
   "dependencies": {
+    "@babel/core": "^7.18.2",
     "@filecoin-shipyard/lotus-client-provider-nodejs": "1.1.1",
     "@filecoin-shipyard/lotus-client-rpc": "^0.2.0",
     "@filecoin-shipyard/lotus-client-schema": "^0.0.14",

@@ -11,7 +11,7 @@ import {
     TextField
 } from '@material-ui/core/';
 import {Alert} from "@material-ui/lab";
-import {FilecoinSnapApi} from "@chainsafe/filsnap-types";
+import {FilecoinSnapApi} from "@karelnagel/minasnap-types";
 import { attoFilToFil, filToAttoFil } from "../../services/utils";
 
 interface ITransferProps {

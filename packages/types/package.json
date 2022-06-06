@@ -1,15 +1,15 @@
 {
-  "name": "@chainsafe/filsnap-types",
-  "version": "2.1.2",
+  "name": "@karelnagel/minasnap-types",
+  "version": "1.0.0",
   "types": "./index.d.ts",
   "license": "(Apache-2.0 AND MIT)",
-  "author": "chainsafe <info@chainsafe.io>",
+  "author": "karelnagel <karel@karel.wtf> (https://karel.wtf)",
   "publishConfig": {
     "access": "public"
   },
-  "description": "Types for Filsnap.",
+  "description": "Types for MinaSnap.",
   "keywords": [
-    "filecoin",
+    "mina",
     "metamask",
     "snap",
     "dapp"

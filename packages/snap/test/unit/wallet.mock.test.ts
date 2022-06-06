@@ -1,7 +1,7 @@
 import {Wallet} from "../../src/interfaces";
 import sinon from "sinon";
 import {testNewBip44Entropy, testNewMetamaskVersion} from "./rpc/keyPairTestConstants";
-import {SnapConfig} from "@chainsafe/filsnap-types";
+import {SnapConfig} from "@karelnagel/minasnap-types";
 
 export class WalletMock implements Wallet {
   public readonly registerRpcMessageHandler = sinon.stub();

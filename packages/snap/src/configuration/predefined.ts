@@ -1,4 +1,4 @@
-import {SnapConfig} from "@chainsafe/filsnap-types";
+import {SnapConfig} from "@karelnagel/minasnap-types";
 
 export const filecoinMainnetConfiguration: SnapConfig = {
   derivationPath: "m/44'/461'/0'/0/0",

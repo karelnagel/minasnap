@@ -1,17 +1,17 @@
 {
-  "version": "2.3.5",
-  "proposedName": "Filsnap",
-  "description": "The Filecoin snap.",
+  "version": "1.0.0",
+  "proposedName": "MinaSnap",
+  "description": "MinaSnap",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Chainsafe/filsnap.git"
+    "url": "https://github.com/karelnagel/minasnap.git"
   },
   "source": {
     "shasum": "HPfrpT3USxqWMAGpBBISGvx+Ieq7DZmPFISV1WPEc1g=",
     "location": {
       "npm": {
         "filePath": "./dist/bundle.js",
-        "packageName": "@chainsafe/filsnap",
+        "packageName": "@karelnagel/minasnap",
         "registry": "https://registry.npmjs.org/"
       }
     }

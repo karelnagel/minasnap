@@ -1,5 +1,5 @@
 import {MetamaskState, Wallet} from "../interfaces";
-import {MessageStatus} from "@chainsafe/filsnap-types";
+import {MessageStatus} from "@karelnagel/minasnap-types";
 
 
 export async function getMessages(wallet: Wallet): Promise<MessageStatus[]> {

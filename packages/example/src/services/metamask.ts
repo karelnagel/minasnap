@@ -1,5 +1,5 @@
-import {SnapRpcMethodRequest} from "@chainsafe/filsnap-types";
-import {enableFilecoinSnap, MetamaskFilecoinSnap} from "@chainsafe/filsnap-adapter";
+import {SnapRpcMethodRequest} from "@karelnagel/minasnap-types";
+import {enableFilecoinSnap, MetamaskFilecoinSnap} from "@karelnagel/minasnap-adapter";
 
 declare global {
     interface Window {
